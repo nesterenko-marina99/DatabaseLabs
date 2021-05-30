@@ -169,4 +169,14 @@ UPDATE ListMedicines SET MedicineId = 4 WHERE ListId = 3;
 UPDATE ListMedicines SET DeliveryId = 4 WHERE ListId = 4;
 UPDATE ListMedicines SET MedicineId = 2 WHERE ListId = 4;
 
+--название и производителя лекарства, цена которого менее заданной суммы
 SELECT medicinename, Manufacturer FROM medicines WHERE Price < 300;
+--id и номер клиентов, совершившие заказ до определенной даты
+select clients.clientid, phone from clients inner join Orders on 
+clients.clientId = Orders.clientId where orders.orderDate < '2021-08-25';
+--лекарства, собранные заданным сотрудником
+select medicineName from medicines where medicineId in (select medicineId 
+from counts inner join orders on counts.orderid = orders.orderid where employeeid 
+in (select employeeid from employees where firstName = 'Жанна' and surname = 'Каргиевич' and parentname = 'Павловна'));
+--общая сумма заказов за определённый период
+select sum(ordersum) from orders where orderDate < '2021-09-01' and orderDate > '2021-08-20';

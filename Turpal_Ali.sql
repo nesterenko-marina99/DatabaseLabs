@@ -1,12 +1,12 @@
 DROP TABLE IF EXISTS department;
 DROP TABLE IF EXISTS position;
 DROP TABLE IF EXISTS worker;
-DROP TABLE IF EXISTS customer;
-DROP TABLE IF EXISTS customer_account;
+DROP TABLE IF EXISTS worker_account;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS item;
 DROP TABLE IF EXISTS basket;
-DROP TABLE IF EXISTS worker_account;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS customer_account;
 DROP TABLE IF EXISTS order;
 
 CREATE TABLE department (
