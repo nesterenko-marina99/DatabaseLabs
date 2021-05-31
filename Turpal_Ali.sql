@@ -91,27 +91,31 @@ create table order (
 );
 
 INSERT INTO department (title, description_)
-VALUES ();
+VALUES ("Отдел Кадров", "Занимается подбором персонала");
 INSERT INTO department (title, description_)
-VALUES ();
+VALUES ("Отдел Безопасности", "Обеспечивает защиту предприятия от кибер-атак");
 INSERT INTO department (title, description_)
-VALUES ();
+VALUES ("SMM-отдел", "Занимается рекламой в соц-сетях");
 INSERT INTO department (title, description_)
-VALUES ();
+VALUES ("Отдел продаж", "Общение с клиентами, помощь в выборе товара, ориентации по магазину");
 INSERT INTO department (title, description_)
-VALUES ();
+VALUES ("Техподдержка", "Обработка ошибок, связанных с техникой");
 
 INSERT INTO position (title, description_, hour_salary)
-VALUES ();
+VALUES ("SMM-специалист", "Занимается продвижением магазина");
 INSERT INTO position (title, description_, hour_salary)
-VALUES ();
+VALUES ("Инспектор безопасности", "Занимается отделом безопасности");
 INSERT INTO position (title, description_, hour_salary)
-VALUES ();
+VALUES ("Старший соотрудник", "Ведущий соотрудник отдела");
 INSERT INTO position (title, description_, hour_salary)
-VALUES ();
+VALUES ("Младший соотрудник", "Рядовой соотрудник отдела");
 INSERT INTO position (title, description_, hour_salary)
-VALUES ();
+VALUES ("Программист", "Занимается технической стороной магазина");
 
+INSERT INTO worker (name_, surname, email, phone, workhours)
+VALUES ();
+INSERT INTO worker (name_, surname, email, phone, workhours)
+VALUES ();
 INSERT INTO worker (name_, surname, email, phone, workhours)
 VALUES ();
 INSERT INTO worker (name_, surname, email, phone, workhours)
@@ -124,55 +128,65 @@ INSERT INTO worker (name_, surname, email, phone, workhours)
 VALUES ();
 
 UPDATE worker SET positionid = 1 WHERE id = 1;
-UPDATE worker SET departmentid = 1 WHERE id = 1;
+UPDATE worker SET departmentid = 3 WHERE id = 1;
 UPDATE worker SET positionid = 2 WHERE id = 2;
 UPDATE worker SET departmentid = 2 WHERE id = 2;
 UPDATE worker SET positionid = 3 WHERE id = 3;
-UPDATE worker SET departmentid = 3 WHERE id = 3;
+UPDATE worker SET departmentid = 1 WHERE id = 3;
 UPDATE worker SET positionid = 4 WHERE id = 4;
-UPDATE worker SET departmentid = 4 WHERE id = 4;
+UPDATE worker SET departmentid = 1 WHERE id = 4;
 UPDATE worker SET positionid = 5 WHERE id = 5;
 UPDATE worker SET departmentid = 5 WHERE id = 5;
+UPDATE worker SET positionid = 5 WHERE id = 6;
+UPDATE worker SET departmentid = 5 WHERE id = 6;
+UPDATE worker SET positionid = 3 WHERE id = 7;
+UPDATE worker SET departmentid = 4 WHERE id = 7;
+
 
 INSERT INTO worker_account (login_, password_)
-VALUES ();
+VALUES ("yatochk", "noragami88");
 INSERT INTO worker_account (login_, password_)
-VALUES ();
+VALUES ("darkness", "konosuba11");
 INSERT INTO worker_account (login_, password_)
-VALUES ();
+VALUES ("kirito", "SwordArtOnline");
 INSERT INTO worker_account (login_, password_)
-VALUES ();
+VALUES ("boruto", "narutofiller");
 INSERT INTO worker_account (login_, password_)
-VALUES ();
+VALUES ("inori", "guilty_crown");
+INSERT INTO worker_account (login_, password_)
+VALUES ("bulbazaur", "Pokemon34");
+INSERT INTO worker_account (login_, password_)
+VALUES ("tangiro", "demon_slayer");
 
 UPDATE worker_account SET workerId = 1 WHERE id = 1;
 UPDATE worker_account SET workerId = 2 WHERE id = 2;
 UPDATE worker_account SET workerId = 3 WHERE id = 3;
 UPDATE worker_account SET workerId = 4 WHERE id = 4;
 UPDATE worker_account SET workerId = 5 WHERE id = 5;
+UPDATE worker_account SET workerId = 6 WHERE id = 6;
+UPDATE worker_account SET workerId = 7 WHERE id = 7;
 
+INSERT INTO category (title, description_)
+VALUES ("Периферия", "Компьютерные мыши, клавиатуры, т.д.");
+INSERT INTO category (title, description_)
+VALUES ("Аудио", "Колонки и наушники");
+INSERT INTO category (title, description_)
+VALUES ("Бытовая техника", "Холодильники, Стиральные машинки и т.д.");
+INSERT INTO category (title, description_)
+VALUES ("Гаджеты", "Телефоны, ноутбуки, планшеты");
+INSERT INTO category (title, description_)
+VALUES ("Аксессуары", "Чехлы, поп-сокеты, стекла, ...");
 
-INSERT INTO category (title, description_)
-VALUES ();
-INSERT INTO category (title, description_)
-VALUES ();
-INSERT INTO category (title, description_)
-VALUES ();
-INSERT INTO category (title, description_)
-VALUES ();
-INSERT INTO category (title, description_)
-VALUES ();
-
 INSERT INTO item (title, price, stock, description_)
-VALUES ();
+VALUES ("Apple MagicMouse", 2900, 300, "беспроводная копьютерная эргономичная мышь");
 INSERT INTO item (title, price, stock, description_)
-VALUES ();
+VALUES ("Marshall major2", 2500, 690, "Беспроводные накладные наушники");
 INSERT INTO item (title, price, stock, description_)
-VALUES ();
+VALUES ("Bosch maxx 4", 27990, 10, "Стиральная машинка фронтальная");
 INSERT INTO item (title, price, stock, description_)
-VALUES ();
+VALUES ("Honor 10i", 12990, 440, "Смартфон с трипл камерой и nfc");
 INSERT INTO item (title, price, stock, description_)
-VALUES ();
+VALUES ("Apple iPhone6 Case", 300, 5000, "Защитный чехол для iPhone 6");
 
 UPDATE item SET categoryId = 1 WHERE id = 1;
 UPDATE item SET categoryId = 2 WHERE id = 2;
@@ -184,16 +198,13 @@ UPDATE item SET categoryId = 5 WHERE id = 5;
 INSERT INTO basket;
 INSERT INTO basket;
 INSERT INTO basket;
-INSERT INTO basket;
-INSERT INTO basket;
 
 UPDATE basket SET itemId = 1 WHERE id = 1;
 UPDATE basket SET itemId = 2 WHERE id = 2;
-UPDATE basket SET itemId = 3 WHERE id = 3;
 UPDATE basket SET itemId = 4 WHERE id = 4;
-UPDATE basket SET itemId = 5 WHERE id = 5;
 
 
+
 INSERT INTO customer (name_, surname,  phone, email)
 VALUES ();
 INSERT INTO customer (name_, surname,  phone, email)
@@ -206,15 +217,15 @@ INSERT INTO customer (name_, surname,  phone, email)
 VALUES ();
 
 INSERT INTO customer_account (login_, password_)
-VALUES ();
+VALUES ("eren", "attack_titan");
 INSERT INTO customer_account (login_, password_)
-VALUES ();
+VALUES ("senku", "Dr. Stone");
 INSERT INTO customer_account (login_, password_)
-VALUES ();
+VALUES ("subaru", "RE:Zero");
 INSERT INTO customer_account (login_, password_)
-VALUES ();
+VALUES ("miyamura", "horimiya");
 INSERT INTO customer_account (login_, password_)
-VALUES ();
+VALUES ("Kira", "Death Note");
 
 UPDATE customer_account SET customerId = 1 WHERE id = 1;
 UPDATE customer_account SET customerId = 2 WHERE id = 2;
