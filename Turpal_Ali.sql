@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS order_table;
+DROP TABLE IF EXISTS order_table; --1-10 строка дроп таблиц в случае, если они существуют
 DROP TABLE IF EXISTS customer_account;
 DROP TABLE IF EXISTS customer;
 DROP TABLE IF EXISTS basket;
@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS worker_account;
 DROP TABLE IF EXISTS worker;
 DROP TABLE IF EXISTS position;
 DROP TABLE IF EXISTS department;
-
+--12 - 93 строка - создание таблиц
 CREATE TABLE department (
     id Serial not null PRIMARY key,
     title VARCHAR(32),
@@ -90,7 +90,7 @@ create table order_table (
     FOREIGN key (customerId) references customer(id),
     FOREIGN key (workerId) references worker(id)
 );
-
+--94 - 268 строка - наполнение таблиц
 INSERT INTO department (title, description_)
 VALUES ('Отдел Кадров', 'Занимается подбором персонала');
 INSERT INTO department (title, description_)
@@ -266,14 +266,14 @@ UPDATE order_table SET workerId = 6 WHERE id = 4;
 UPDATE order_table SET workerId = 2 WHERE id = 5;
 UPDATE order_table SET workerId = 5 WHERE id = 6;
 
-
+--270 и 271 - запросы, 272 и 273 - представления
 select title from item inner join basket on item.id = basket.itemId where basket.id in (select basketId from order_table where customerId in (select id from customer where name_ = 'Роберт' and surname = 'Петров'));
 select * from worker inner join position on worker.positionId = position.id where workhours < 7 and hour_salary > 300;
 Create view goods_cheaper_3000 as select * from item where price < 3000;
 Create view customer_emails as select email from customer where id in (select customerId from order_table inner join basket on basket.id = order_table.basketid where itemId in (select id from item where categoryId in (select id from category where title = 'Гаджеты')));
 
 
-
+--процедура изменения цены
 ccreate or replace procedure changePrice(
 item_name VARCHAR(45),
 new_price INT
@@ -287,15 +287,17 @@ update item set price = new_price where title = item_name;
 end;
 $$
 
-call changePrice('Honor 10i', 13990);
+call changePrice('Honor 10i', 13990); -- вызов процедуры
 
+
+--процедура удаления
 CREATE OR REPLACE FUNCTION deletion() RETURNS TRIGGER AS $$
 begin 
 	delete from worker where
 	worker_account.id = OLD.id;
 end;
 $$ LANGUAGE plpgsql;
-
+--создание тригера на удаление, вызывающего процедуру удаления
 create trigger after_delete_worker_account 
 after delete on worker_account
 for each row 
