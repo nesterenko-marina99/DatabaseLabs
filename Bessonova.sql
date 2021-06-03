@@ -101,7 +101,7 @@ create table reservation (
 
 create table room (
     id Serial not null PRIMARY key,
-    number INT,
+    number_ INT,
     comfort_level varchar(16),
     cost DECIMAL,
     booking_dates INTERVAL,
@@ -280,18 +280,18 @@ UPDATE reservation SET personId = 8 WHERE id = 4;
 UPDATE reservation SET hotelid = 1 WHERE id = 4;
 UPDATE reservation SET paymentId = 4 WHERE id = 4;
 
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Эконом', 1400, '120:00:00');
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Эконом', 1000, '120:00:00');
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Полулюкс', 20000, '96:00:00');
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Стандарт', 8000, '48:00:00');
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Стандарт', 8000, '48:00:00');
-INSERT INTO room (comfort_level, cost, booking_dates)
-VALUES ('Эконом', 4000, '96:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (4, 'Эконом', 1400, '120:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (2, 'Эконом', 1000, '120:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (802, 'Полулюкс', 20000, '96:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (417, 'Стандарт', 8000, '48:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (420, 'Стандарт', 8000, '48:00:00');
+INSERT INTO room (number_, comfort_level, cost, booking_dates)
+VALUES (339, 'Эконом', 4000, '96:00:00');
 
 UPDATE room SET reservationId = 1 WHERE id = 1;
 UPDATE room SET room_cleaningId = 4 WHERE id = 1;
